@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --port 18468",
     "build": "tsc --noEmit -p tsconfig.app.json && vite build",
-    "preview": "vite preview --port 18468"
+    "preview": "vite preview --port 18468",
+    "test:rules": "esbuild scripts/store-test.ts --bundle --platform=node --format=esm --outfile=node_modules/.cache/store-test.mjs --log-level=warning && node scripts/run-store-test.mjs"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.10.4",

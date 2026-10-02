@@ -9,7 +9,7 @@ export function EvidenceGraph({ facts }: { facts: ClaimFact[] }) {
       {facts.map((fact) => <Box key={fact.id} minW="210px" borderWidth="1px" borderColor="gray.300" p="3" position="relative" _before={{ content: '"—"', position: 'absolute', left: '-12px', color: 'teal.600' }}>
         <Text fontSize="xs" color="gray.500">事实 {fact.id}</Text>
         <Text fontSize="sm" fontWeight="700" mt="1">{fact.text}</Text>
-        <Flex mt="3" gap="2"><Box flex="1" borderWidth="1px" borderColor="green.300" p="2"><Text fontSize="xs">支持 {fact.sources.length}</Text></Box><Box flex="1" borderWidth="1px" borderColor="red.300" borderStyle="dashed" p="2"><Text fontSize="xs">反驳 {fact.counterSources.length}</Text></Box></Flex>
+        <Flex mt="3" gap="2"><Box flex="1" borderWidth="1px" borderColor={fact.authState === '待重认' ? 'orange.400' : 'green.300'} p="2"><Text fontSize="xs">支持 {fact.sourceIds.length}{fact.authState === '待重认' ? '（授权待重认）' : ''}</Text></Box><Box flex="1" borderWidth="1px" borderColor="red.300" borderStyle="dashed" p="2"><Text fontSize="xs">反驳 {fact.counterSourceIds.length}</Text></Box></Flex>
       </Box>)}
     </Flex>
   </Box>
